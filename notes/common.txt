@@ -1,0 +1,160 @@
+# command locations
+/{bin,sbin}
+/usr/{bin,sbin}
+/usr/local/{bin,sbin}
+
+# create recursive directory structure
+mkdir -p a/b/c/d
+
+# create init file in two directories
+touch {src,test}/__init__.py
+
+# count all the words in a file
+cat file.txt | wc
+
+# create a list of numbers from 1 to 10
+seq 1 10
+
+# run command every 2 seconds
+watch "date"
+
+# kill process using port
+sudo fuser -k 8000/tcp
+
+# limit memory usage for following commands
+ulimit -Sv 1000       # 1000 KBs = 1 MB
+ulimit -Sv unlimited  # Remove limit
+
+# rename files
+rename 's/\.bak$/.txt/' *.bak
+
+# find and delete files
+find . -name "*.gz" -delete
+
+# add a line number to output
+ls -al | nl
+
+# show file forward or backward
+cat file
+tac file
+
+# show top or bottom of file
+head file
+tail file
+
+# show time of program to execute
+/usr/bin/time -v ls -al
+
+# randomizing a file
+cat file.txt | sort -R | head
+shuf file.txt
+
+# create empty file
+touch file.txt
+fallocate -l 1G test.img
+
+# show random data and convert to base 64
+cat /dev/urandom | base64 | head -n 1 # secure password generation
+cat /proc/sys/kernel/random/uuid      # get a random uuid
+cat /dev/urandom | base64             # b64
+cat /dev/urandom | base32             # b32
+cat /dev/urandom | hexdump            # hex
+cat /dev/urandom | xxd -b -c 3        # binary, 3 cols
+
+# using brace substitution
+mkdir -p new_project/{img,js,css}
+mv some_file.txt{,.old}
+
+# bash variables
+$RANDOM  # random number
+$SECONDS # number of seconds bash was started
+
+# get ip address
+ip address
+ifconfig
+
+# sleep 3 seconds
+sleep 3
+
+# create a safe, temporary file
+tempfile # /tmp/file86v3Ge
+
+# calendar
+cal
+date
+
+# get env variables and modify file with envs present
+env
+envsubst
+
+# redirection
+date | tee -a log.txt
+
+# system logs
+dmesg # display bootup sequence
+
+# job control
+jobs, fg, bg ctrl-z, ctrl-c
+
+# system state
+top, htop
+
+# file explorer
+ranger
+
+# kill a windowed app
+xkill
+
+# monitor disk space
+df -h
+
+# running multiple commands
+cmd1; cmd2; cmd3;
+cmd1 && cmd2 && cmd3
+
+# search backward through command history
+CTRL + r
+
+# get ip address
+ifconfig
+ip addr
+
+# show free RAM usage
+free -h
+
+# show start up sequence and logging
+dmesg -H
+
+# to push and pop directories off the stack
+pushd / popd
+
+# process and system startup tree
+pstree
+systemd-cgls
+
+# sweet output about system
+neofetch
+
+# creates ascii art of text
+figlet
+
+# the matrix in the terminal
+cmatrix
+
+# colorize the output into a rainbow
+cat file.txt | lolcat
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+http://www.brendangregg.com/linuxperf.html
+
+lsof -P -p $PID          # show open files by process
+lsof -P -i :$PORT        # identify process using a port
+lsof $FILENAME           # identify process writing to a file
+lsof -u $USERNAME        # show open files by user
+lsof -Pan -i tcp -i udp  # show all open ports
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+netstat -tunapl    # show open ports
+strace             # show syscalls from running process
+strace -c ./myapp  # show count of all syscalls using during execution
+iftop              # show current in/out bound network activity
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
