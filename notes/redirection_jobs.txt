@@ -13,6 +13,13 @@ python logging.py < input.txt 2> err.txt | tee -a normal.txt
 (ls -al;seq 1 3;python logging.py < input.txt;) 1>> normal.log 2> err.log
 (ls -al & seq 1 3 & python logging.py < input.txt & seq 4 9) 1>> normal.log 2> err.log
 
+python app1.py # CTRL + z # suspended
+node app2.js   # CTRL + z # suspended
+ruby app3.rb   &          # running
+jobs
+bg %1                     # running python process
+fg %3          # CTRL + z # ruby app is suspended
+
 ### ----------------------------------------------------------------------- ###
 ### ----------------------------------------------------------------------- ###
 ### ----------------------------------------------------------------------- ###
