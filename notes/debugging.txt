@@ -1,0 +1,14 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+http://www.brendangregg.com/linuxperf.html
+
+lsof -P -p $PID          # show open files by process
+lsof -P -i :$PORT        # identify process using a port
+lsof $FILENAME           # identify process writing to a file
+lsof -u $USERNAME        # show open files by user
+lsof -Pan -i tcp -i udp  # show all open ports
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+netstat -tunapl    # show open ports
+strace             # show syscalls from running process
+strace -c ./myapp  # show count of all syscalls using during execution
+iftop              # show current in/out bound network activity
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

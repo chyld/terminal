@@ -1,4 +1,45 @@
+# create empty file
+touch file.txt
+fallocate -l 1G test.img
+
 # empty out a file
 > log.txt ... CTRL + D # eof
 true > log.txt
 cat /dev/null > log.txt
+
+# create a safe, temporary file
+tempfile # /tmp/file86v3Ge
+
+# create recursive directory structure
+mkdir -p a/b/c/d
+
+# using brace substitution
+mkdir -p new_project/{img,js,css}
+
+# create init file in two directories
+touch {src,test}/__init__.py
+
+# count all the words in a file
+cat file.txt | wc
+
+# show line numbers
+cat -n file.txt
+cat file.txt | nl
+
+# rename files
+rename 's/\.bak$/.txt/' *.bak
+
+# show file forward or backward
+cat file
+tac file
+
+# show top or bottom of file
+head file
+tail file
+
+# reverse each line
+cat file.txt | rev
+
+# randomizing a file
+cat file.txt | sort -R | head
+shuf file.txt
