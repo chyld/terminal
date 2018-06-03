@@ -1,0 +1,69 @@
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+
+python logging.py < input.txt
+python logging.py < input.txt 1> normal.txt
+python logging.py < input.txt 1>> normal.txt
+python logging.py < input.txt 1>> normal.txt 2> err.txt
+python logging.py < input.txt 1> normal.txt 2>&1
+python logging.py < input.txt 2> err.txt 1>&2
+python logging.py < input.txt 1> normal.txt 2> /dev/null
+python logging.py < input.txt 2> err.txt | tee -a normal.txt
+(ls -al;seq 1 3;python logging.py < input.txt;) 1>> normal.log 2> err.log
+(ls -al & seq 1 3 & python logging.py < input.txt & seq 4 9) 1>> normal.log 2> err.log
+
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+
+# start a process and send in a file
+# via stdin. stdout and stderr will be
+# displayed on the screen
+python logging.py < input.txt
+
+# start a process and send in a file
+# via stdin. stdout will be redirected
+# to a file and stderr will be displayed
+# on the screen
+python logging.py < input.txt 1> normal.txt
+
+# same as above, but appending stdout
+# instead of replacing
+python logging.py < input.txt 1>> normal.txt
+
+# same as above, but redirecting stderr
+# to a file, nothing is shown on screen
+python logging.py < input.txt 1>> normal.txt 2> err.txt
+
+# same as above, redirecting stdout to normal.txt
+# and then sending stderr (2) to go where stdout
+# is going (&1)
+python logging.py < input.txt 1> normal.txt 2>&1
+
+# same as above, redirecting stderr to err.txt
+# and then sending stdout (1) to go where stderr
+# is going (&2)
+python logging.py < input.txt 2> err.txt 1>&2
+
+# redirect input.txt to stdin. redirect stdout to
+# normal.txt and redirect stderr to /dev/null
+python logging.py < input.txt 1> normal.txt 2> /dev/null
+
+# read a file as stdin and then send errors out to err.txt
+# next we pipe stdout to the tee program which will
+# display stdout to the screen and send it to a file for logging
+python logging.py < input.txt 2> err.txt | tee -a normal.txt
+
+# run 3 processes sequentially, separated by a semicolon.
+# wrap those processes in parenthesis and that becomes a
+# new pseudo-file. redirect stdout and stderr for that
+# pseudo-file for logging
+(ls -al;seq 1 3;python logging.py < input.txt;) 1>> normal.log 2> err.log
+
+# same as above, but running multiple processes in parallel
+(ls -al & seq 1 3 & python logging.py < input.txt & seq 4 9) 1>> normal.log 2> err.log
+
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###

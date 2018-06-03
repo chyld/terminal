@@ -1,0 +1,4 @@
+# empty out a file
+> log.txt ... CTRL + D # eof
+true > log.txt
+cat /dev/null > log.txt
