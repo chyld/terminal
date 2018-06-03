@@ -1,3 +1,19 @@
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+
+find devops -path "*/.git" -prune -o -type d -print | grep macos
+find . -type f -name "*.png"
+find . -type d | grep ubuntu
+find . -size +10k
+find . -empty
+find . -empty -exec rm {} +
+find . -type f -name "*.txt" -exec grep -n postgres {} +
+
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+
 # look in the devops directory and prune or filter out the
 # git repo (-path -prune -o). show only directories (-type d)
 # and then print. send results to grep for further processing
@@ -27,3 +43,7 @@ find . -empty -exec rm {} +
 # and execute grep on each file looking for the
 # word postgres
 find . -type f -name "*.txt" -exec grep -n postgres {} +
+
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
+### ----------------------------------------------------------------------- ###
