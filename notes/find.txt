@@ -1,0 +1,29 @@
+# look in the devops directory and prune or filter out the
+# git repo (-path -prune -o). show only directories (-type d)
+# and then print. send results to grep for further processing
+find devops -path "*/.git" -prune -o -type d -print | grep macos
+
+# start from here (.) and find only files (-type f) that
+# end in *.png
+find . -type f -name "*.png"
+
+# start here (.) and find all the directories, filter in grep
+find . -type d | grep ubuntu
+
+# start here (.) and find files greater than 10k
+# k(ilo), M(ega), G(iga)
+find . -size +10k
+
+# start here (.) and find all empty files
+find . -empty
+
+# start here (.) and find all empty files,
+# then execute the "rm _____" for every file that
+# is found. "{}" is a placeholder for the file.
+# "exec" is terminated by the "+"
+find . -empty -exec rm {} +
+
+# start here (.) and find all files that end in .txt
+# and execute grep on each file looking for the
+# word postgres
+find . -type f -name "*.txt" -exec grep -n postgres {} +

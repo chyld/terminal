@@ -1,3 +1,10 @@
+# zsh autocompletion
+find - # then tab, zsh will show all the options for a unix command :)
+
+# time options
+cal
+date
+
 # command locations
 /{bin,sbin}
 /usr/{bin,sbin}
