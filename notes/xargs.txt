@@ -1,0 +1,6 @@
+seq 5 | xargs touch
+seq 5 | xargs -I {} touch super-{}.js
+ls | xargs rm
+stat 1.py
+echo {1..9} | xargs touch
+echo {1..9} | xargs -n3
