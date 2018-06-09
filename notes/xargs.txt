@@ -1,6 +1,11 @@
 seq 5 | xargs touch
 seq 5 | xargs -I {} touch super-{}.js
+cat file.txt | xargs touch
 ls | xargs rm
-stat 1.py
 echo {1..9} | xargs touch
 echo {1..9} | xargs -n3
+
+ls -al | xargs -I {} sh -c 'echo "one: {}"; echo "two: {}"'
+
+stat 1.py
+file 1.py
