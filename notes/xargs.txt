@@ -7,5 +7,7 @@ echo {1..9} | xargs -n3
 
 ls -al | xargs -I {} sh -c 'echo "one: {}"; echo "two: {}"'
 
+seq -s "-" -f "a%g.py" 50 | tr '-' '\n' | xargs --verbose -I {} touch {}
+
 stat 1.py
 file 1.py
