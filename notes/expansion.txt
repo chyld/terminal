@@ -1,0 +1,28 @@
+#
+# single quotes DO NOT expand, but double quotes WILL
+#
+
+# literal
+DOG='fido'
+
+# same result ...fido
+echo $DOG
+echo "$DOG"
+echo ${DOG}
+echo "${DOG}"
+
+# literal, no expansion
+echo 'the dogs name is $DOG'
+
+# expansion 'the dogs name is fido'
+echo "the dogs name is $DOG"
+
+# capture output and send to var d1
+# $d1 == 'the dogs name is fido'
+d1=$(echo "the dogs name is $DOG")
+
+# find the length of a string
+echo "the length of $DOG is ${#DOG}"
+
+# substrings
+echo "printing the first two chars of $DOG : ${DOG:0:2}"
