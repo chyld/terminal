@@ -10,6 +10,7 @@ python logging.py < input.txt 1> normal.txt 2>&1
 python logging.py < input.txt 2> err.txt 1>&2
 python logging.py < input.txt 1> normal.txt 2> /dev/null
 python logging.py < input.txt 2> err.txt | tee -a normal.txt
+python logging.py <(cmd arg1 arg2)
 (ls -al;seq 1 3;python logging.py < input.txt;) 1>> normal.log 2> err.log
 (ls -al & seq 1 3 & python logging.py < input.txt & seq 4 9) 1>> normal.log 2> err.log
 
@@ -61,6 +62,9 @@ python logging.py < input.txt 1> normal.txt 2> /dev/null
 # next we pipe stdout to the tee program which will
 # display stdout to the screen and send it to a file for logging
 python logging.py < input.txt 2> err.txt | tee -a normal.txt
+
+# take the output of cmd and send it via stdin to the python process
+python logging.py <(cmd arg1 arg2)
 
 # run 3 processes sequentially, separated by a semicolon.
 # wrap those processes in parenthesis and that becomes a
