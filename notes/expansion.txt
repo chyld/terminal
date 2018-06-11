@@ -26,3 +26,12 @@ echo "the length of $DOG is ${#DOG}"
 
 # substrings
 echo "printing the first two chars of $DOG : ${DOG:0:2}"
+
+# create variable, z, from output of seq
+# pipe the value of $z into xargs to create the files
+z=$(seq -f "a_%g.py" 3 7)
+echo $z | xargs --verbose -n1 touch
+
+# dump out the value of $z as hexadecimal
+echo $z | xxd
+echo $z | hd

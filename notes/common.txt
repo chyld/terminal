@@ -83,3 +83,7 @@ pushd / popd
 # process and system startup tree
 pstree
 systemd-cgls
+
+# hex dump
+xxd
+hd
