@@ -1,0 +1,5 @@
+# substitute chyld, elsa and qinghua in test.txt
+sed -e 's/chyld/papa/' -e 's/elsa/baby/' -e 's/qinghua/mama/' test.txt
+
+# search for chyld and print out last name then first name
+awk '/chyld/ {print "last: " $2 ", first: " $1}' test.txt
