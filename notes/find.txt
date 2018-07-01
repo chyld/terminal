@@ -14,6 +14,13 @@ find . -type f -name "*.txt" -exec grep -n postgres {} +
 ### ----------------------------------------------------------------------- ###
 ### ----------------------------------------------------------------------- ###
 
+# fzf is a fuzzy finder and a fast one at that
+fzf
+
+# ag or the silver surfer will find text inside of files
+# also very fast
+ag
+
 # look in the devops directory and prune or filter out the
 # git repo (-path -prune -o). show only directories (-type d)
 # and then print. send results to grep for further processing
