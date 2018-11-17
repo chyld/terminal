@@ -1,0 +1,19 @@
+# use "echo" to simulate what a command would do if executed
+$ echo touch code.{py,js,cc}
+# touch code.py code.js code.cc
+
+# range with skip
+$ echo touch a{1..10..2}.py
+# touch a1.py a3.py a5.py a7.py a9.py
+
+backticks vs $() for cmd execution
+
+single quote - literal, double quote - expansion
+
+----------------------------------------
+
+# show all internet traffic, in hex
+sudo tcpdump -X
+# filter to only http traffic on port 80
+sudo tcpdump 'tcp port 80' -X
+
