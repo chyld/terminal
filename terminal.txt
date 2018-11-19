@@ -17,3 +17,13 @@ sudo tcpdump -X
 # filter to only http traffic on port 80
 sudo tcpdump 'tcp port 80' -X
 
+----------------------------------------
+
+/proc/<pid>/environ
+/proc/<pid>/cmdline
+/proc/<pid>/stack
+/proc/<pid>/fd/*
+
+pmap -X <pid>
+
+
