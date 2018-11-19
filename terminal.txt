@@ -26,4 +26,12 @@ sudo tcpdump 'tcp port 80' -X
 
 pmap -X <pid>
 
+----------------------------------------
+ranger - file explorer
+rg - ripgrep, search through files
+expose private http server - https://ngrok.com/
+bat - cat with color
+exa - super file listing
+fd - super fast find utility
+
 
